@@ -9,6 +9,31 @@ guesses = 3
 basket_list = [["flower", 1.1], ["cookie", 1.5], ["Muffin", 2]]
 #instructions
 input("There are 3 items in the basket: flowers, cookies, and muffins.")
+input("""                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                               _______________________                          
+                             _|≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡|_                        
+                           _|-=|                     |--|_                      
+                          /_-/                         \=-\                     
+                         │-=│                           │-_│                    
+                         │=_│                           │=-│                    
+                         │=-│                           │_=│                    
+                        \_-_=\_________________________/-=__/                   
+                         \-==_-=-_=_-_=_-=-_-_=--_=_-_-=_-_/                    
+                          \_=_-_==-_ _=__-=-_-_= =_-_=-_=-/                     
+                           \-=_-_==_-=_-=_=_--_=-_=__-=_=/                      
+                            \-=--_=-_=_-=--_=_--=-__-=_=/                       
+                             \=_=-__-==_=-_=_=-_-==_=__/                        
+                              \_=-_-_==-_=-__=_-=_-_=-/                         
+                               \-=-_=_-_-=___--==-__-/                          
+                                ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡                           
+                                                                                
+                                                                                """)
 input("A flower weighs 1.1")
 input("A cookie weighs 1.5")
 input("A muffins weighs 2")
@@ -26,6 +51,7 @@ while guesses > 0:
         input(f"That is incorrect, you have {guesses} attempts left.")
     else:
         print("That is correct!")
+        print("You now have a key in your inventory")
     break
 if guesses <= 0:
     print("You lost! Game Over")
