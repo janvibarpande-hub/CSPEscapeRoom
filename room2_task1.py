@@ -5,8 +5,6 @@ rannum = random.uniform(10, 20)
 weight = round(rannum, 1)
 #guess count
 guesses = 3
-#inventory options with weight (not needed)
-basket_list = [["flower", 1.1], ["cookie", 1.5], ["Muffin", 2]]
 #instructions
 input("There are 3 items in the basket: flowers, cookies, and muffins.")
 input("""                                                                                
