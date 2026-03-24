@@ -10,7 +10,10 @@ def room2_task2():
         ["all", "the", "better", "to", "eat", "you", "with"],
         ["i", "am", "going", "to", "visit", "my", "grandmother"],
         ["she", "lives", "just", "beyond", "those", "trees"],
-        ["little", "red", "riding", "hood"]
+        ["little", "red", "riding", "hood"],
+        ["do", "not", "speak", "to", "any", "strangers", "on", "the", "road"], 
+        ["he", "swallowed", "poor", "old", "grandmother"], 
+        ["the", "wolf", "had", "a", "very", "good", "appetite"]
         ]
 
 
@@ -21,12 +24,20 @@ def room2_task2():
     work_phrase = []
     for i in range(length):
         word = phrase[i]
+        #seperate each letter in the word into its own part of the list
         string_list = list(word)
         random.shuffle(string_list)
+        #join the scrambled letters back together
         new_word = "".join(string_list)
+        #make sure the word is scrambled properly
+        if new_word == word:
+            string_list = list(word)
+            random.shuffle(string_list)
+            new_word = "".join(string_list)
+
         work_phrase.append(new_word)
+        #add the words into a list
         new_phrase = " ".join(work_phrase)
-    #add spaces to the word so it all not clump together
 
     guess = 5
     print("You have arrived at Granny's house but she has a lock on her door.")
@@ -55,7 +66,8 @@ def room2_task2():
     print(new_phrase)
     time.sleep(3)
     while guess > 0:
-        unscrambled = input("Please enter the uncrambled phrase: ")
+        unscrambled_up = input("Please enter the uncrambled phrase: ")
+        unscrambled = unscrambled_up.lower()
         if unscrambled == unscram_phr:
             print("That is correct!")
             print("You have recieved a key")
@@ -63,6 +75,9 @@ def room2_task2():
         else:
             guess -= 1
             print(f"That is incorrect, you have {guess} left")
+        if guess == 0:
+            print("You have run out of guesses")
+            print("Game Over!")
 
 room2_task2()
     
