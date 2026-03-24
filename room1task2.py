@@ -8,10 +8,12 @@ flower_list = [
     "Clematis", "Cyclamen", "Foxglove", "Gardenia", "Gladiolus", 
     "Heather", "Lobelia", "Morning Glory", "Oleander", "Petunia", 
     "Trillium", "Verbena", "Wallflower", "Anemone", "Camellia"]
-rand_index = random.randint(0, 39)
-answer = flower_list[rand_index]
+answer = random.choice(flower_list).upper()
 letters = list(answer)
-template = len(letters) * "____  "
+template = ["____"] * len(letters)
+wrong_guesses = 0
+print(letters)
+
 hangmans = [' --------------------',
             ''' 
                 |                                 
@@ -160,8 +162,33 @@ hangmans = [' --------------------',
  ---------------+---''',
 '''---GAME OVER---''']
 
-def letter_placer():
+def letter_placer(guess, letters, template):
+    for i in range(len(letters)):
+        if letters[i] == guess.upper():
+            template[i] = letters[i]
+    return template
+print("\n" + " ".join(template))
+while wrong_guesses < (len(hangmans) - 1):
+        
+    guess = input("Guess the letter: ")
 
+    if guess.upper() in answer.upper():
+        current_display = letter_placer(guess, letters, template)
+        print(current_display)
+        print("Great job player!")
+        continue
+    else:
+        wrong_guesses += 1
+        print(current_display)        
+        print(hangmans[wrong_guesses])
+        print(f"lives remaining: {len(hangmans) - 1 - wrong_guesses}")
+        continue
+
+    if "____" not in template:
+        print(f"Winner! The word was {answer}")
+    break
+else:
+    ("-- GAME OVER --")
 
 
 
