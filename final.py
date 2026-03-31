@@ -1,3 +1,4 @@
+import sys
 import time
 narrator = ["""Oh, look who’s decided to take the scenic route. How... brave of you.
 Welcome, dear traveler, to the woods. It’s a lovely day for a walk to Granny’s house, isn't it?
@@ -24,8 +25,19 @@ for s in range(para_count):
     print(narrator[s])
     time.sleep(5.0)
 
+print("""
 
-while True:
+
+
+
+
+
+
+      """)
+
+play = True
+print("Game 1 : Find the wolf")
+while play == True:
     og_graph = """
                        1      2      3      4      5      6                        
                     ╓─────────────────────────────────────────╖                     
@@ -54,7 +66,7 @@ while True:
     #graphing function
     def graph_mark(guess):
         row_map = {"A": 3,"B": 6, "C": 9, "D": 12, "E": 15}
-        col_map = {'1': 20, '2': 27, '3': 34, '4': 41, '5': 48, '6': 55}
+        col_map = {'1': 22, '2': 29, '3': 36, '4': 43, '5': 50, '6': 57}
     
         lines = og_graph.split("\n")
         char_count = 0
@@ -71,7 +83,6 @@ while True:
     rand_y = random.randint(1, 6)
     #full coordinate
     coordinate = (f"{rand_x}{rand_y}")
-    
     #counter of lives and keys
     game_won = False
     lives = 7
@@ -115,14 +126,22 @@ while True:
     
         if choice == 'Q':
             print("Thanks for playing!")
-        break
+        sys.exit()
+        if choice == "":
+            play == True
+print("""
 
 
 
 
 
-    
-while True:
+
+
+      """)
+
+play2 = True
+print("Game 2 : Name the flower")  
+while play2 == True:
     import random
     import time
     flower_list2 = [
@@ -140,7 +159,6 @@ while True:
     current_display2 = template2
     wrong_guesses2 = 0
     other_letters2 = []
-    print(letters2)
     game_won2 = False
 
     hangmans2 = [' --------------------',
@@ -157,7 +175,8 @@ while True:
                     |                                 
                     |
     ----------------+---''',
-    '''  -----------+                                 
+    '''
+         -----------+                                 
                     |                                 
                     |                                 
                     |                                 
@@ -275,53 +294,62 @@ while True:
     print("\n" + " ".join(template2))
     while wrong_guesses2 < (len(hangmans2) - 1):
         guess2 = input("Guess the letter: ").upper() 
-        time.sleep(1.0)
+        time.sleep(0.5)
         if guess2 in current_display2 or guess2 in other_letters2:
             print("Already guessed!")
-            time.sleep(1.0)
+            time.sleep(0.5)
             continue
 
         if guess2.upper() in answer2.upper():
             current_display2 = letter_placer(guess2, letters2, template2)
             print("\n" + " ".join(current_display2))
-            time.sleep(1.0)
+            time.sleep(0.5)
             print("Great job player!")
-            time.sleep(1.0)
+            time.sleep(0.5)
 
             
             if "____" not in current_display2:
                 print(f"Winner! The word was {answer2}")
-                time.sleep(1.0)
+                time.sleep(0.5)
                 game_won2 == True
+                break
         else:
             wrong_guesses2 += 1
             other_letters2.append(guess2)
             print("Wrong guess")
-            time.sleep(1.0)
+            time.sleep(0.5)
             print("\n" + " ".join(current_display2))
-            time.sleep(1.0)
+            time.sleep(0.5)
             print(hangmans2[wrong_guesses2])
-            time.sleep(1.0)
+            time.sleep(0.5)
     if game_won2 == True:
         print("""Congradulations player, You have sucsessfully found grannie her flowers""")
+    break
     if game_won2 == False:
         choice2 = input("Press ENTER to retry or type 'Q' to quit: ").upper()
-    
-    if choice2 == 'Q':
-        print("Thanks for playing!")
-        break
+        if choice2 == 'Q':
+            print("Thanks for playing!")
+        sys.exit()
+        if choice2 == "":
+            play2 == True
+print("""
 
 
 
 
-    
-while True:
-    print("Room 2, task 1")
+
+
+
+      """)
+
+play3 = True
+print("Game 3 : Just Right")    
+while play3 == True:
     #importing
     import time
     import random
     #setting the random weight
-    game_won3 == False
+    game_won3 = False
     rannum3 = random.uniform(10, 20)
     weight3 = round(rannum3, 1)
     #guess count
@@ -363,7 +391,7 @@ while True:
     time.sleep(2.5)
     print("You can have 3 total guesses")
     time.sleep(2.5)
-    print(f"Calculate the number of each item that is needed for the basket to weigh {weight}.")
+    print(f"Calculate the number of each item that is needed for the basket to weigh {weight3}.")
     time.sleep(3.5)
     #inventory guess input
     while guesses3 > 0:
@@ -409,21 +437,26 @@ while True:
         total3 = flower3 + cookie3 + muffin3
         if total3 != weight3:
             guesses3 -= 1
-            print(f"That is incorrect, you have {guesses} attempts left.")
+            print(f"That is incorrect, you have {guesses3} attempts left.")
         else:
             print("That is correct!")
             print("You now have a key in your inventory")
             game_won3 == True
-            
+            break
     if guesses3 <= 0:
         print("You lost! Game Over")
     if game_won3 == True:
         print("""Congradulations player, You have sucsessfully created the perfect basket""")
+    break
     if game_won3 == False:
         choice3 = input("Press ENTER to retry or type 'Q' to quit: ").upper()
     if choice3 == 'Q':
         print("Thanks for playing!")
-        break                                    
+    sys.exit()
+    if choice3 == "":
+        play3 == True
+
+print("""
 
 
 
@@ -431,9 +464,11 @@ while True:
 
 
 
+      """)
 
-
-while True:
+play4 = True
+print("Game 4 : Unscrammble the code")
+while play4 == True:
     game_won4 = False
     import random
     import time
@@ -508,6 +543,7 @@ while True:
             print("That is correct!")
             print("You have recieved a key")
             game_won4 == True
+            break
         else:
             guess4 -= 1
             print(f"That is incorrect, you have {guess4} left")
@@ -516,10 +552,14 @@ while True:
         print("Game Over!")
     if game_won4 == True:
         print("""Congradulations player, You have sucsessfully created the unscrambled grannies code""")
+        play4 == False
+        break
     if game_won4 == False:
         choice4 = input("Press ENTER to retry or type 'Q' to quit: ").upper()
-    if choice4 == 'Q':
-        print("Thanks for playing!")
-        break
+        if choice4 == 'Q':
+            print("Thanks for playing!")
+        sys.exit()
+        if choice4 == "":
+            play4 == True
 
 
