@@ -126,9 +126,9 @@ while play == True:
     
         if choice == 'Q':
             print("Thanks for playing!")
-        sys.exit()
+            sys.exit()
         if choice == "":
-            play == True
+            play = True
 print("""
 
 
@@ -311,7 +311,7 @@ while play2 == True:
             if "____" not in current_display2:
                 print(f"Winner! The word was {answer2}")
                 time.sleep(0.5)
-                game_won2 == True
+                game_won2 = True
                 break
         else:
             wrong_guesses2 += 1
@@ -324,14 +324,14 @@ while play2 == True:
             time.sleep(0.5)
     if game_won2 == True:
         print("""Congradulations player, You have sucsessfully found grannie her flowers""")
-    break
+        break
     if game_won2 == False:
         choice2 = input("Press ENTER to retry or type 'Q' to quit: ").upper()
         if choice2 == 'Q':
             print("Thanks for playing!")
-        sys.exit()
+            sys.exit()
         if choice2 == "":
-            play2 == True
+            play2 = True
 print("""
 
 
@@ -441,20 +441,20 @@ while play3 == True:
         else:
             print("That is correct!")
             print("You now have a key in your inventory")
-            game_won3 == True
+            game_won3 = True
             break
     if guesses3 <= 0:
         print("You lost! Game Over")
     if game_won3 == True:
         print("""Congradulations player, You have sucsessfully created the perfect basket""")
-    break
+        break
     if game_won3 == False:
         choice3 = input("Press ENTER to retry or type 'Q' to quit: ").upper()
-    if choice3 == 'Q':
-        print("Thanks for playing!")
-    sys.exit()
-    if choice3 == "":
-        play3 == True
+        if choice3 == 'Q':
+            print("Thanks for playing!")
+            sys.exit()
+        if choice3 == "":
+            play3 = True
 
 print("""
 
@@ -542,7 +542,7 @@ while play4 == True:
         if unscrambled4 == unscram_phr4:
             print("That is correct!")
             print("You have recieved a key")
-            game_won4 == True
+            game_won4 = True
             break
         else:
             guess4 -= 1
@@ -558,8 +558,8 @@ while play4 == True:
         choice4 = input("Press ENTER to retry or type 'Q' to quit: ").upper()
         if choice4 == 'Q':
             print("Thanks for playing!")
-        sys.exit()
+            sys.exit()
         if choice4 == "":
-            play4 == True
+            play4 = True
 
 
