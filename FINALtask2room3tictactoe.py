@@ -71,6 +71,10 @@ while turns < 9:
         try:
             #getting column number and checking for correct value
             col = int(input("Enter column (1,2,3): "))
+            if col != 1 and col != 2 and col != 3:
+                print("Column numbers are 1-3, you did not enter a valid input")
+                print("")
+                continue
             taking_input = False
         except ValueError:
             print("Please enter the column number as 1,2 or 3")
